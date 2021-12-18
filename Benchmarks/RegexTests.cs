@@ -19,9 +19,9 @@ public class RegexTests
         .RuleFor(c => c.FirstName, f => f.Person.FirstName)
         .RuleFor(c => c.LastName, f => f.Person.LastName)
         .RuleFor(c => c.Email, f => f.Person.Email)
-        .Generate(50);
+        .Generate(10);
 
-    private static readonly List<string> _emails = _customers.Select(c => c.Email).ToList();
+    private static readonly List<string> _emails = _customers.Select(c => c.Email ?? "").ToList();
 
     [Benchmark]
     public void IsMatch()
@@ -71,7 +71,7 @@ public class RegexTests
 public class Customer
 {
     public int id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public string? Email { get; set; }
 }

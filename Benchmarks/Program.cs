@@ -1,6 +1,7 @@
-﻿using BenchmarkDotNet.Running;
-using Benchmarks;
+﻿using Benchmarks;
 
 // BenchmarkRunner.Run<ForEachTests>();
 
-BenchmarkRunner.Run<RegexTests>();
+// BenchmarkRunner.Run<RegexTests>();
+
+BenchmarkRunner.Run<HashMethodsTests>();
