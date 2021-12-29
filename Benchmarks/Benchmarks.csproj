@@ -16,4 +16,16 @@
       <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.2.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="BenchmarkDotNet.Artifacts\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="BenchmarkDotNet.Artifacts\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="BenchmarkDotNet.Artifacts\**" />
+    </ItemGroup>
+
 </Project>

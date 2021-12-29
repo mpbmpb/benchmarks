@@ -22,7 +22,6 @@ public class StringConcatTests
             public IEnumerable<BenchmarkCase> GetSummaryOrder(ImmutableArray<BenchmarkCase> benchmarksCase, Summary summary) =>
                 benchmarksCase.OrderBy(benchmark => benchmark.Parameters[nameof(ChunkSize)])
                     .ThenBy(benchmark => benchmark.Parameters[nameof(NumberOfConcats)])
-                    .ThenByDescending(benchmark => benchmark.Parameters[nameof(WithCharArray)])
                     .ThenBy(benchmark => summary[benchmark].ResultStatistics.Mean);
 
             public string GetHighlightGroupKey(BenchmarkCase benchmarkCase) => null!;
@@ -40,8 +39,7 @@ public class StringConcatTests
     
     [Params(4, 100)]
     public int NumberOfConcats { get; set; } = 2;
-    
-    [ParamsAllValues]
+
     public bool WithCharArray { get; set; }
     
     [Params(10, 1000)]
