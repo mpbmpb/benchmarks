@@ -7,45 +7,29 @@
 // BenchmarkRunner.Run<HashMethodsTests>();
 
 BenchmarkRunner.Run<StringConcatTests>();
-
+//
 // var test = new StringConcatTests();
-// test.NumberOfConcats = 4;
-// test.ChunkSize = 10;
+// test.NumberOfConcats = 100;
+// test.ChunkSize = 1000;
+// test.WithCharArray = false;
 //
 // void pad() => Console.WriteLine("\n".PadLeft(Console.WindowWidth,'-'));
 //
 // Console.WriteLine();
 // pad();
-// Console.WriteLine(test.StringConcat());
+// Console.WriteLine(nameof(test.WithOperator));
+// Console.WriteLine(test.WithOperator());
 // pad();
-// Console.WriteLine(test.StringBuilderMethod());
+// Console.WriteLine(nameof(test.WithStringBuilder));
+// Console.WriteLine(test.WithStringBuilder());
 // pad();
-// Console.WriteLine(test.StringConcatWithChars());
+// Console.WriteLine(nameof(test.WithSpan));
+// Console.WriteLine(test.WithSpan());
 // pad();
-// Console.WriteLine(test.SpanMethodReturningFromArray());
+// Console.WriteLine(nameof(test.WithSpanStackalloc));
+// Console.WriteLine(test.WithSpanStackalloc());
 // pad();
-// Console.WriteLine(test.SpanMethodReturningFromSpan());
+// Console.WriteLine(nameof(test.WithPointers));
+// Console.WriteLine(test.WithPointers());
 // pad();
-// Console.WriteLine(test.SpanMethodReturningFromSpanToString());
-// pad();
-// Console.WriteLine("stringBuilder with char");
-// Console.WriteLine(test.StringBuilderMethodWithChars());
-// pad();
-// Console.WriteLine("stackalloc");
-// Console.WriteLine(test.SpanMethodStackalloc());
-// pad();
-// Console.WriteLine("stackalloc toString");
-// Console.WriteLine(test.SpanMethodStackallocToString());
-// pad();
-// Console.WriteLine("all span");
-// Console.WriteLine(test.AllSpanMethod());
-// pad();
-// Console.WriteLine("all span stackalloc");
-// Console.WriteLine(test.AllSpanMethodStackalloc());
-// pad();
-// Console.WriteLine("pointer method");
-// Console.WriteLine(test.PointerMethod());
-// pad();
-// Console.WriteLine("AllPointerMethod");
-// Console.WriteLine(test.AllPointerMethod());
 // ;
