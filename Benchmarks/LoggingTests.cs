@@ -1,4 +1,6 @@
 using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Core;
 
 namespace Benchmarks;
 
@@ -6,7 +8,7 @@ namespace Benchmarks;
 public class LoggingTests
 {
     private const string Message = "This is a message";
-    private const string MessageWithParameters = "A message with parameters {0] and {1}";
+    private const string MessageWithParameters = "A message with parameters {0} and {1}";
     
     private readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(builder =>
     {
@@ -14,7 +16,14 @@ public class LoggingTests
     });
 
     private readonly ILogger<LoggingTests> _logger;
-    private readonly ILoggerAdapter<LoggingTests> _loggerAdapter; 
+    private readonly ILoggerAdapter<LoggingTests> _loggerAdapter;
+
+    private readonly Logger log = new LoggerConfiguration()
+        .MinimumLevel.Warning()
+        .WriteTo.Console()
+        .CreateLogger();
+    
+    
 
     public LoggingTests()
     {
@@ -56,6 +65,12 @@ public class LoggingTests
     public void Log_with_adapter_with_parameters()
     {
         _loggerAdapter.LogInformation(MessageWithParameters, 42, 101);
+    }
+
+    [Benchmark]
+    public void Log_using_Serilog_with_parameters()
+    {
+        log.Information(MessageWithParameters, 42, 101);
     }
 
 }
