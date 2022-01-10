@@ -6,4 +6,6 @@
 
 // BenchmarkRunner.Run<HashMethodsTests>();
 
-BenchmarkRunner.Run<StringConcatTests>();
+// BenchmarkRunner.Run<StringConcatTests>();
+
+BenchmarkRunner.Run<LoggingTests>();
